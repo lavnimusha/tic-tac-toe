@@ -70,7 +70,7 @@ class Box extends Component {
         
         return (
         <div>
-            <h1 className="heading">Tic-Tac-Toe</h1>
+            <h1 className="heading">Tic~Tac~Toe</h1>
             <div className="grid-container">
             <button disabled={this.value}className="grid-item" onClick = {() => this.handler(0)}>{this.state.arr[0]}</button>
             <button disabled={this.value}className="grid-item" onClick = {() => this.handler(1)}>{this.state.arr[1]}</button>
