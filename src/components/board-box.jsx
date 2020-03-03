@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/box.css';
-
+//import ReactDOM from "react-dom";
 
 class Box extends Component {
     constructor(){
@@ -32,39 +32,28 @@ class Box extends Component {
             [0, 4, 8],
             [2, 4, 6]
         ];
-        var new_arr = [];
-        let win = '';
         var a = [...this.state.arr];
         var flag = 0;
-        for(let i = 0; i <= a.length-1; i++){
-            for( let j = i+1; j <= a.length-2; j++){ 
-                if(a[i] === a[j]){
-                    let x = j-i;
-                    let t = j+x;
-                    win = a[j];
-                    if(a[t] === a[i] && a[i] !== null){
-                        new_arr.push(i);
-                        new_arr.push(j);
-                        new_arr.push(t);
-                    
-                        for(let k = 0;k <= rows.length-1 ; k++){
-                            if(JSON.stringify(new_arr) === JSON.stringify(rows[k])){
+        
+// Get child nodes
+
+        for(let i = 0; i < rows.length; i++ ){
+            let value = a[rows[i][0]];
+            for(let j = 0; j < rows[i].length; j++ ){
+                    var x = rows[i][j];
+                    if(a[x] === value && value !== null)
                             flag = 1;
-                            console.log("coming here" + win);         
-                            break;
-                            }
-                            else{
-                                flag = 0;
-                            }
-                        }
-                    }       
-                }
+                    else{
+                    flag = 0;
+                    break;
+                    }
             }
-        
-        if(flag === 1){
-            return flag;
-        }
-        
+            if(flag === 1){
+                console.log("coming here"+rows[i])
+                
+                return 1;
+                
+            }
         }
         return 0;
     }
@@ -74,21 +63,28 @@ class Box extends Component {
     }
 
     render() {
+        var value = false;
+        const dis = function (){
+            this.value = true;
+        }
+        
         return (
         <div>
+            <h1 className="heading">Tic-Tac-Toe</h1>
             <div className="grid-container">
-            <button className="grid-item" onClick = {() => this.handler(0)}>{this.state.arr[0]}</button>
-            <button className="grid-item" onClick = {() => this.handler(1)}>{this.state.arr[1]}</button>
-            <button className="grid-item" onClick = {() => this.handler(2)}>{this.state.arr[2]}</button>
-            <button className="grid-item" onClick = {() => this.handler(3)}>{this.state.arr[3]}</button>
-            <button className="grid-item" onClick = {() => this.handler(4)}>{this.state.arr[4]}</button>
-            <button className="grid-item" onClick = {() => this.handler(5)}>{this.state.arr[5]}</button>
-            <button className="grid-item" onClick = {() => this.handler(6)}>{this.state.arr[6]}</button>
-            <button className="grid-item" onClick = {() => this.handler(7)}>{this.state.arr[7]}</button>
-            <button className="grid-item" onClick = {() => this.handler(8)}>{this.state.arr[8]}</button>
+            <button disabled={this.value}className="grid-item" onClick = {() => this.handler(0)}>{this.state.arr[0]}</button>
+            <button disabled={this.value}className="grid-item" onClick = {() => this.handler(1)}>{this.state.arr[1]}</button>
+            <button disabled={this.value}className="grid-item" onClick = {() => this.handler(2)}>{this.state.arr[2]}</button>
+            <button disabled={this.value}className="grid-item" onClick = {() => this.handler(3)}>{this.state.arr[3]}</button>
+            <button disabled={this.value}className="grid-item" onClick = {() => this.handler(4)}>{this.state.arr[4]}</button>
+            <button disabled={this.value}className="grid-item" onClick = {() => this.handler(5)}>{this.state.arr[5]}</button>
+            <button disabled={this.value}className="grid-item" onClick = {() => this.handler(6)}>{this.state.arr[6]}</button>
+            <button disabled={this.value}className="grid-item" onClick = {() => this.handler(7)}>{this.state.arr[7]}</button>
+            <button disabled={this.value}className="grid-item" onClick = {() => this.handler(8)}>{this.state.arr[8]}</button>
             </div>
-            <button className="reset" onClick = {() => this.Reset()}>Reset</button>
-            {(this.algo())!==0 ? <h1>Winner is {this.state.toggle === 'o' ? 'x':'o'}</h1> : ''}
+            <button className="reset" onClick = {() => {this.Reset();this.value=false;}} >Reset</button>
+            
+            {(this.algo())!==1 ? '':<div>{this.value=true}<h1>Winner is {this.state.toggle === 'o' ? 'x':'o'}</h1></div> }
         </div>
             
         )

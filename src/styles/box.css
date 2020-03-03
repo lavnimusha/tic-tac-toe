@@ -5,6 +5,11 @@
     grid-template-rows: auto auto auto;
     padding: 5px;
     grid-gap: 5px;
+    margin-top: 20px;
+}
+.heading{
+    font-family: "Times New Roman", Times, serif;
+    color: grey;
 }
 .grid-item{
     background-color: grey;
