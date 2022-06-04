@@ -1,9 +1,13 @@
-###TIC-TAC-TOE
-Live: https://lavnimusha.github.io/tic-tac-toe/
+# TIC-TAC-TOE
 
-Skills: HTML, CSS, React
+## Live:  
+https://lavnimusha.github.io/tic-tac-toe/
 
-Description: Tic-tac-toe is played on a three-by-three grid by two players, who alternately place the marks X and O in one of the nine spaces in the grid.
+## Skills: 
+HTML, CSS, React
+
+## Description:
+Tic-tac-toe is played on a three-by-three grid by two players, who alternately place the marks X and O in one of the nine spaces in the grid.
 When there is pattern match of either 'o' or'x' in a row/column or in cross for a particular player, he wins the game.
 
 <img width="427" alt="Screen Shot 2022-06-04 at 2 03 41 PM" src="https://user-images.githubusercontent.com/40901373/172025434-1186c07f-4846-417d-8d5c-57c6207a0793.png">
